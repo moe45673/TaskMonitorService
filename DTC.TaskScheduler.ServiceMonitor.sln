@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTC.TaskScheduler.ServiceMonitor.Api", "DTC.TaskScheduler.ServiceMonitor.Api\DTC.TaskScheduler.ServiceMonitor.Api.csproj", "{90ABD606-AF7B-47AB-9E87-8AC88EA9AC02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTC.TaskScheduler.ServiceMonitor.Logic", "DTC.TaskScheduler.ServiceMonitor.Logic\DTC.TaskScheduler.ServiceMonitor.Logic.csproj", "{75AC4A11-D4D3-427E-95EF-E66E8DB84F25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTC.TaskScheduler.ServiceMonitorSandboxRunner", "DTC.TaskScheduler.ServiceMonitorSandboxRunner\DTC.TaskScheduler.ServiceMonitorSandboxRunner.csproj", "{7842B91A-8460-4EFC-A58F-D294D93EA7C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTC.TaskScheduler.ServiceMonitor.Monitor", "DTC.TaskScheduler.ServiceMonitor.MonitorBehavior\DTC.TaskScheduler.ServiceMonitor.Monitor.csproj", "{85708837-C794-4E99-9D76-F6B8E76F1C28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90ABD606-AF7B-47AB-9E87-8AC88EA9AC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90ABD606-AF7B-47AB-9E87-8AC88EA9AC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90ABD606-AF7B-47AB-9E87-8AC88EA9AC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90ABD606-AF7B-47AB-9E87-8AC88EA9AC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75AC4A11-D4D3-427E-95EF-E66E8DB84F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75AC4A11-D4D3-427E-95EF-E66E8DB84F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75AC4A11-D4D3-427E-95EF-E66E8DB84F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75AC4A11-D4D3-427E-95EF-E66E8DB84F25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7842B91A-8460-4EFC-A58F-D294D93EA7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7842B91A-8460-4EFC-A58F-D294D93EA7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7842B91A-8460-4EFC-A58F-D294D93EA7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7842B91A-8460-4EFC-A58F-D294D93EA7C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85708837-C794-4E99-9D76-F6B8E76F1C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85708837-C794-4E99-9D76-F6B8E76F1C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85708837-C794-4E99-9D76-F6B8E76F1C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85708837-C794-4E99-9D76-F6B8E76F1C28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A273870-57E5-4A24-8093-C256B71855E8}
+	EndGlobalSection
+EndGlobal
