@@ -11,5 +11,8 @@ namespace DTC.TaskScheduler.ServiceMonitor.Logic.Jobs
     {
 
         ITaskRunner TaskRunner { get; }
+       
     }
+
+   
 }

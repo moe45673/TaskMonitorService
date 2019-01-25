@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DTC.TaskScheduler.ServiceMonitor.Logic.Actions;
-using DTC.TaskScheduler.ServiceMonitor.MonitorBehavior.Jobs;
+using DTC.TaskScheduler.ServiceMonitor.Logic.Jobs;
+using DTC.TaskScheduler.ServiceMonitor.Monitor.Jobs;
 using Microsoft.Win32.TaskScheduler;
 using Quartz;
 
 
-namespace DTC.TaskScheduler.ServiceMonitor.MonitorBehavior.PingWinTaskMonitor
+namespace DTC.TaskScheduler.ServiceMonitor.Monitor.PingWinTaskMonitor
 {
     using System.Net;
     using DTC.TaskScheduler.ServiceMonitor.Logic;
@@ -64,13 +65,37 @@ namespace DTC.TaskScheduler.ServiceMonitor.MonitorBehavior.PingWinTaskMonitor
 
         }
 
-        public async AsyncTask ScheduleJob(string taskName, int intervalMinutes, DateTime startTime, DateTime endTime, List<string> IPAddresses)
+        public async AsyncTask ScheduleJob(string taskName, int intervalMinutes, DateTime startTime, DateTime endTime, string logDirectory, List<string> logArguments)
         {
+            var identity = taskName.Replace(" ", ""); //Remove spaces
 
-            IJobDetail job = JobBuilder.Create<EDFTaskJob>()
-                .WithIdentity("EDFTask", "group1")
+            
+
+            var jobBuilder = JobBuilder.Create<EDFTaskJob>()
+                .WithIdentity(identity, "group1")
+                .SetJobData(
+                    new JobDataMap
+                    {
+                        { "eventHandler", TaskPerformed}
+                    })
                 .UsingJobData("TaskName", taskName)
-                .Build();
+                .UsingJobData("logDirectory", logDirectory);
+                
+            for (int i = 0; i < logArguments.Count; i++)
+            {
+                jobBuilder = jobBuilder.UsingJobData($@"logArgument{i}", logArguments[i]);
+            }
+
+            var jobDetail = jobBuilder.Build();
+
+            
+
+            
+
+            OnTaskPerformed(new MonitorEventArgs
+            {
+                Message = $@"Job {jobDetail.JobDataMap["TaskName"]} created."
+            });
 
             
             //$@"0 0/{intervalMinutes}"
@@ -78,12 +103,23 @@ namespace DTC.TaskScheduler.ServiceMonitor.MonitorBehavior.PingWinTaskMonitor
                 .WithIdentity($"Every{intervalMinutes}Minutes", "group1")
                 .WithCronSchedule($@"0 {startTime.Minute}/{intervalMinutes} {startTime.Hour}-{endTime.Hour} * * ?", x => x
                     .InTimeZone(TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time")))
-                .ForJob("EDFTask", "group1")
+                .ForJob(identity, "group1")
                 .Build() as ICronTrigger;
 
-            await Scheduler?.ScheduleJob(job, trigger);
+            OnTaskPerformed(new MonitorEventArgs
+            {
+                Message = $"JobTrigger for job \"{jobDetail.JobDataMap["TaskName"]}\" created."
+            });
 
+            await Scheduler?.ScheduleJob(jobDetail, trigger);
+
+            OnTaskPerformed(new MonitorEventArgs
+            {
+                Message = $"Job {jobDetail.JobDataMap["TaskName"]} scheduled."
+            });
         }
+
+       
 
         protected virtual async void OnTaskPerformed(MonitorEventArgs e)
         {

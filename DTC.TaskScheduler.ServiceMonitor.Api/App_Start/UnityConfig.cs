@@ -2,8 +2,8 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using DTC.TaskScheduler.ServiceMonitor.Logic.Actions;
 using DTC.TaskScheduler.ServiceMonitor.Logic;
-using DTC.TaskScheduler.ServiceMonitor.MonitorBehavior;
-using DTC.TaskScheduler.ServiceMonitor.MonitorBehavior.Jobs;
+using DTC.TaskScheduler.ServiceMonitor.Monitor;
+using DTC.TaskScheduler.ServiceMonitor.Monitor.Jobs;
 
 using Unity;
 using Unity.Lifetime;
@@ -12,7 +12,7 @@ using System;
 using System.Configuration;
 using System.Diagnostics;
 using Quartz;
-using DTC.TaskScheduler.ServiceMonitor.MonitorBehavior.PingWinTaskMonitor;
+using DTC.TaskScheduler.ServiceMonitor.Monitor.PingWinTaskMonitor;
 
 namespace DTC.TaskScheduler.ServiceMonitor
 {

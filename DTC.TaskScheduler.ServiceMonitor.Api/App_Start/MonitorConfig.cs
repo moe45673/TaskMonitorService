@@ -7,7 +7,7 @@ using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using DTC.TaskScheduler.ServiceMonitor.MonitorBehavior;
+using DTC.TaskScheduler.ServiceMonitor.Monitor;
 using Quartz;
 using Quartz.Impl;
 using Unity;

@@ -9,7 +9,7 @@ using TaskState = Microsoft.Win32.TaskScheduler.TaskState;
 
 
 // ReSharper disable once CheckNamespace
-namespace DTC.TaskScheduler.ServiceMonitor.MonitorBehavior
+namespace DTC.TaskScheduler.ServiceMonitor.Monitor
 {
     #region Aliases
     using AsyncTask = System.Threading.Tasks.Task;
@@ -25,7 +25,7 @@ namespace DTC.TaskScheduler.ServiceMonitor.MonitorBehavior
         AsyncTask StartMonitor(IScheduler scheduler);
 
         AsyncTask ScheduleJob(string taskName, int intervalMinutes, DateTime startTime, DateTime endTime,
-            List<string> IPAddresses);
+            string logDirectory, List<string> logArguments);
         AsyncTask EndMonitor();
 
         event MonitorEventHandler TaskPerformed;
