@@ -18,12 +18,18 @@ namespace DTC.TaskScheduler.ServiceMonitor.Service
         static void Main()
         {
             
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            //ServiceBase[] ServicesToRun;
+            //ServicesToRun = new ServiceBase[]
+            //{
+            //    new Service1()
+            //};
+            //ServiceBase.Run(ServicesToRun);
+            var thisService = new Service1();
+            thisService.OnStartAsync();
+            while (true)
             {
-                new Service1()
-            };
-            ServiceBase.Run(ServicesToRun);
+
+            }
         }
     }
 }

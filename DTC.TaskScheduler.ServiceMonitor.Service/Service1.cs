@@ -9,7 +9,6 @@ using System.Reflection;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
-using DealerTrack.CommonObjects.DTLogger;
 using DTC.TaskScheduler.ServiceMonitor.Monitor;
 using DTC.TaskScheduler.ServiceMonitor.Monitor.PingWinTaskMonitor;
 using Quartz;
@@ -25,7 +24,7 @@ namespace DTC.TaskScheduler.ServiceMonitor.Service
         private EventLog eventLog;
         public Service1()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
             
         }
@@ -41,7 +40,7 @@ namespace DTC.TaskScheduler.ServiceMonitor.Service
 
         }
 
-        protected async Task OnStartAsync()
+        public async Task OnStartAsync()
         {
             _scheduler = await _factory.GetScheduler().ConfigureAwait(false);
             _monitor = new PingWinTaskMonitor();
@@ -79,98 +78,98 @@ namespace DTC.TaskScheduler.ServiceMonitor.Service
 
         private void InitializeEventLog()
         {
-            eventLog = new EventLog();
-            if (!EventLog.SourceExists(this.ServiceName))
-            {
-                EventLog.CreateEventSource(this.ServiceName, this.ServiceName + "Log");
-            }
-            eventLog.Source = this.ServiceName;
-            //eventLog.Log = this.ServiceName + "Log";
+            //eventLog = new EventLog();
+            //if (!EventLog.SourceExists(this.ServiceName))
+            //{
+            //    EventLog.CreateEventSource(this.ServiceName, this.ServiceName + "Log");
+            //}
+            //eventLog.Source = this.ServiceName;
+            ////eventLog.Log = this.ServiceName + "Log";
 
-            //bool log_errors_in_event_log = Util.GetValueFromAppSettings("log_errors_in_event_log", log_errors_in_event_log_default_value);
-            //if (log_errors_in_event_log)
-                Log.EventLog = eventLog;
+            ////bool log_errors_in_event_log = Util.GetValueFromAppSettings("log_errors_in_event_log", log_errors_in_event_log_default_value);
+            ////if (log_errors_in_event_log)
+            //    Log.EventLog = eventLog;
         }
 
         private async Task OnTaskPerformed(object sender, MonitorEventArgs e)
         {
-            await Task.Run(() => Log.EventLog.WriteEntry(e.Message));
+            await Task.Delay(1);
         }
     }
 
-    #region OutputLog
-    public static class Log
-    {
-        public static DTLoggerClassic logger = new DTLoggerClassic() { MessageType = "recoverablemessage" };
+//    #region OutputLog
+//    public static class Log
+//    {
+//        public static DTLoggerClassic logger = new DTLoggerClassic() { MessageType = "recoverablemessage" };
 
-        public static string ApplicationProfileId { get; set; }
+//        public static string ApplicationProfileId { get; set; }
 
-        public static string LenderId { get; set; }
+//        public static string LenderId { get; set; }
 
-        public static System.Diagnostics.EventLog EventLog = null;
+//        public static System.Diagnostics.EventLog EventLog = null;
 
-        public static void LogError(Exception ex)
-        {
-            try
-            {
-                string machineName = System.Environment.MachineName;
-                string logQueueName = GetValueFromAppSettings("log_queue_name", string.Empty);
-                logger.LogEvent("queue",
-                    logQueueName,
-                    null,
-                    machineName,
-                    "EDFTaskServiceMonitor",
-                    ex.ToString(),
-                    "EDFTaskServiceMonitorLog",
-                    string.Empty,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    GetMethodName(2),
-                    "E",
-                    "LR",
-                    LenderId,
-                    "Y",
-                    "X",
-                    null,
-                    null,
-                    ApplicationProfileId);
-            }
-            catch (Exception)
-            {
-                //cannot log this log error ... so just do nothing
-            }
-        }
+//        public static void LogError(Exception ex)
+//        {
+//            try
+//            {
+//                string machineName = System.Environment.MachineName;
+//                string logQueueName = GetValueFromAppSettings("log_queue_name", string.Empty);
+//                logger.LogEvent("queue",
+//                    logQueueName,
+//                    null,
+//                    machineName,
+//                    "EDFTaskServiceMonitor",
+//                    ex.ToString(),
+//                    "EDFTaskServiceMonitorLog",
+//                    string.Empty,
+//                    null,
+//                    null,
+//                    null,
+//                    null,
+//                    null,
+//                    null,
+//                    GetMethodName(2),
+//                    "E",
+//                    "LR",
+//                    LenderId,
+//                    "Y",
+//                    "X",
+//                    null,
+//                    null,
+//                    ApplicationProfileId);
+//            }
+//            catch (Exception)
+//            {
+//                //cannot log this log error ... so just do nothing
+//            }
+//        }
 
-        private static string GetValueFromAppSettings(string config, string defaultValue)
-        {
-            string result = defaultValue;
-            string fromConfig = ConfigurationManager.AppSettings[config];
-            if (!string.IsNullOrWhiteSpace(fromConfig))
-                result = fromConfig;
-            return result;
-        }
+//        private static string GetValueFromAppSettings(string config, string defaultValue)
+//        {
+//            string result = defaultValue;
+//            string fromConfig = ConfigurationManager.AppSettings[config];
+//            if (!string.IsNullOrWhiteSpace(fromConfig))
+//                result = fromConfig;
+//            return result;
+//        }
 
-        private static string GetMethodName(int frameIndex)
-        {
-            var result = string.Empty;
-            StackTrace stackTrace = new StackTrace();
+//        private static string GetMethodName(int frameIndex)
+//        {
+//            var result = string.Empty;
+//            StackTrace stackTrace = new StackTrace();
 
-            if (stackTrace.FrameCount > frameIndex)
-            {
-                StackFrame stackFrame = stackTrace.GetFrame(frameIndex);
-                MethodBase methodBase = stackFrame.GetMethod();
+//            if (stackTrace.FrameCount > frameIndex)
+//            {
+//                StackFrame stackFrame = stackTrace.GetFrame(frameIndex);
+//                MethodBase methodBase = stackFrame.GetMethod();
 
-                if (methodBase.DeclaringType != null)
-                {
-                    result = methodBase.DeclaringType.Name + "." + methodBase.Name;
-                }
-            }
-            return result;
-        }
-    }
-#endregion
+//                if (methodBase.DeclaringType != null)
+//                {
+//                    result = methodBase.DeclaringType.Name + "." + methodBase.Name;
+//                }
+//            }
+//            return result;
+//        }
+//    }
+//#endregion
 }
