@@ -7,8 +7,8 @@
     <ProjectGuid>{75AC4A11-D4D3-427E-95EF-E66E8DB84F25}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DTC.TaskScheduler.ServiceMonitor.Logic</RootNamespace>
-    <AssemblyName>DTC.TaskScheduler.ServiceMonitor.Logic</AssemblyName>
+    <RootNamespace>DTC.OEM.EDF.ServiceMonitor.Logic</RootNamespace>
+    <AssemblyName>DTC.OEM.EDF.ServiceMonitor.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

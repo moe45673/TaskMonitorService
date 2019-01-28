@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Task = Microsoft.Win32.TaskScheduler.Task;
 
 // ReSharper disable once CheckNamespace
-namespace DTC.TaskScheduler.ServiceMonitor.Logic
+namespace DTC.OEM.EDF.ServiceMonitor.Logic.Interfaces
 {
     using AsyncWindowsTask = Task<Task>;
     public interface ITaskRunner

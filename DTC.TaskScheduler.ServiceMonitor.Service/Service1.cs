@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
 using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
 using System.ServiceProcess;
-using System.Text;
 using System.Threading.Tasks;
-using DTC.TaskScheduler.ServiceMonitor.Monitor;
-using DTC.TaskScheduler.ServiceMonitor.Monitor.PingWinTaskMonitor;
+using DTC.OEM.EDF.ServiceMonitor.Logic.Interfaces;
+using DTC.TaskScheduler.ServiceMonitor.MonitorBehavior.PingWinTaskMonitorBehavior;
 using Quartz;
 using Quartz.Impl;
 
-namespace DTC.TaskScheduler.ServiceMonitor.Service
+namespace DTC.OEM.EDF.ServiceMonitor.Service
 {
     public partial class Service1 : ServiceBase
     {

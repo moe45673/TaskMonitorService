@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6FEC8276-3F80-435A-B56D-DEF3F0C81876}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DTC.TaskScheduler.ServiceMonitor.Service</RootNamespace>
-    <AssemblyName>DTC.TaskScheduler.ServiceMonitor.Service</AssemblyName>
+    <RootNamespace>DTC.OEM.EDF.ServiceMonitor.Service</RootNamespace>
+    <AssemblyName>DTC.OEM.EDF.ServiceMonitor.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -86,13 +86,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTC.TaskScheduler.ServiceMonitor.Logic\DTC.TaskScheduler.ServiceMonitor.Logic.csproj">
+    <ProjectReference Include="..\DTC.TaskScheduler.ServiceMonitor.Logic\DTC.OEM.EDF.ServiceMonitor.Logic.csproj">
       <Project>{75ac4a11-d4d3-427e-95ef-e66e8db84f25}</Project>
-      <Name>DTC.TaskScheduler.ServiceMonitor.Logic</Name>
+      <Name>DTC.OEM.EDF.ServiceMonitor.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DTC.TaskScheduler.ServiceMonitor.MonitorBehavior\DTC.TaskScheduler.ServiceMonitor.Monitor.csproj">
+    <ProjectReference Include="..\DTC.TaskScheduler.ServiceMonitor.MonitorBehavior\DTC.OEM.EDF.ServiceMonitor.Monitor.csproj">
       <Project>{85708837-c794-4e99-9d76-f6b8e76f1c28}</Project>
-      <Name>DTC.TaskScheduler.ServiceMonitor.Monitor</Name>
+      <Name>DTC.OEM.EDF.ServiceMonitor.Monitor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

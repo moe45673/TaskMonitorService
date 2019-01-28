@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DTC.TaskScheduler.ServiceMonitor.Logic;
-using DTC.TaskScheduler.ServiceMonitor.Logic.Actions;
-using DTC.TaskScheduler.ServiceMonitor.Logic.Jobs;
+using DTC.OEM.EDF.ServiceMonitor.Logic.Actions;
+using DTC.OEM.EDF.ServiceMonitor.Logic.Interfaces;
+using DTC.OEM.EDF.ServiceMonitor.Logic.Jobs;
 using Quartz;
 
-namespace DTC.TaskScheduler.ServiceMonitor.Monitor.Jobs
+namespace DTC.OEM.EDF.ServiceMonitor.Monitor.Jobs
 {
+    // ReSharper disable once InconsistentNaming
     internal class EDFTaskJob : IEDFTaskJob
     {
         public ITaskRunner TaskRunner { get; protected set; }

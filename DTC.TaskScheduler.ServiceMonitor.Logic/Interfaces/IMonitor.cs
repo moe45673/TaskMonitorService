@@ -1,15 +1,10 @@
-﻿using Microsoft.Win32.TaskScheduler;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.NetworkInformation;
-using DTC.TaskScheduler.ServiceMonitor.Logic;
 using Quartz;
-using TaskState = Microsoft.Win32.TaskScheduler.TaskState;
 
 
 // ReSharper disable once CheckNamespace
-namespace DTC.TaskScheduler.ServiceMonitor.Monitor
+namespace DTC.OEM.EDF.ServiceMonitor.Logic.Interfaces
 {
     #region Aliases
     using AsyncTask = System.Threading.Tasks.Task;

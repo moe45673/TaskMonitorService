@@ -1,4 +1,4 @@
-﻿namespace DTC.TaskScheduler.ServiceMonitor.Service
+﻿namespace DTC.OEM.EDF.ServiceMonitor.Service
 {
     partial class ProjectInstaller
     {

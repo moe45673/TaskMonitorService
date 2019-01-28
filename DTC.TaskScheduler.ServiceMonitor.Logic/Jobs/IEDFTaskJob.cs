@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DTC.OEM.EDF.ServiceMonitor.Logic.Interfaces;
 using Quartz;
 
-namespace DTC.TaskScheduler.ServiceMonitor.Logic.Jobs
+namespace DTC.OEM.EDF.ServiceMonitor.Logic.Jobs
 {
+    // ReSharper disable once InconsistentNaming
     public interface IEDFTaskJob : IJob
     {
 

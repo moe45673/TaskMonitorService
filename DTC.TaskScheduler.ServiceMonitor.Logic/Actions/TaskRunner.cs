@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DTC.TaskScheduler.ServiceMonitor.Logic;
+using DTC.OEM.EDF.ServiceMonitor.Logic.Interfaces;
 using Microsoft.Win32.TaskScheduler;
 using Quartz.Util;
 using AsyncTaskReturnWinTask = System.Threading.Tasks.Task<Microsoft.Win32.TaskScheduler.Task>;
@@ -13,7 +11,7 @@ using AsyncTask = System.Threading.Tasks.Task;
 using Task = Microsoft.Win32.TaskScheduler.Task;
 
 
-namespace DTC.TaskScheduler.ServiceMonitor.Logic.Actions
+namespace DTC.OEM.EDF.ServiceMonitor.Logic.Actions
 {
     public class TaskRunner : ITaskRunner
     {

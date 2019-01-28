@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using DTC.TaskScheduler.ServiceMonitor.Logic.Actions;
-using DTC.TaskScheduler.ServiceMonitor.Logic.Jobs;
-using DTC.TaskScheduler.ServiceMonitor.Monitor.Jobs;
+using DTC.OEM.EDF.ServiceMonitor.Logic.Actions;
+using DTC.OEM.EDF.ServiceMonitor.Logic.Interfaces;
+using DTC.OEM.EDF.ServiceMonitor.Monitor.Jobs;
 using Microsoft.Win32.TaskScheduler;
 using Quartz;
 
-
-namespace DTC.TaskScheduler.ServiceMonitor.Monitor.PingWinTaskMonitor
+namespace DTC.TaskScheduler.ServiceMonitor.MonitorBehavior.PingWinTaskMonitorBehavior
 {
-    using System.Net;
-    using DTC.TaskScheduler.ServiceMonitor.Logic;
     #region Aliases
 
     using AsyncTask = System.Threading.Tasks.Task;

@@ -7,8 +7,8 @@
     <ProjectGuid>{85708837-C794-4E99-9D76-F6B8E76F1C28}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DTC.TaskScheduler.ServiceMonitor.MonitorBehavior</RootNamespace>
-    <AssemblyName>DTC.TaskScheduler.ServiceMonitor.MonitorBehavior</AssemblyName>
+    <RootNamespace>DTC.OEM.EDF.ServiceMonitor.Monitor</RootNamespace>
+    <AssemblyName>DTC.OEM.EDF.ServiceMonitor.Monitor</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -57,9 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTC.TaskScheduler.ServiceMonitor.Logic\DTC.TaskScheduler.ServiceMonitor.Logic.csproj">
+    <ProjectReference Include="..\DTC.TaskScheduler.ServiceMonitor.Logic\DTC.OEM.EDF.ServiceMonitor.Logic.csproj">
       <Project>{75ac4a11-d4d3-427e-95ef-e66e8db84f25}</Project>
-      <Name>DTC.TaskScheduler.ServiceMonitor.Logic</Name>
+      <Name>DTC.OEM.EDF.ServiceMonitor.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
